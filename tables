@@ -1,0 +1,40 @@
+1. BOOKS TABLE :
+CREATE TABLE Books (
+   BookID INT PRIMARY KEY,
+   Title VARCHAR(255),
+   Author VARCHAR(255),
+   ISBN VARCHAR(13),
+   PublicationYear INT,
+   Category VARCHAR(100),
+   CopiesAvailable INT
+);
+
+2. MEMBERS TABLE:
+CREATE TABLE Members (
+   MemberID INT PRIMARY KEY,
+   Name VARCHAR(255),
+   Email VARCHAR(255),
+   PhoneNumber VARCHAR(15),
+   MembershipDate DATE
+);
+
+3. TRANSACTION TABLE:
+  CREATE TABLE Transactions (
+   TransactionID INT PRIMARY KEY,
+   BookID INT,
+   MemberID INT,
+   IssueDate DATE,
+   ReturnDate DATE,
+   DueDate DATE,
+   FOREIGN KEY (BookID) REFERENCES Books(BookID),
+   FOREIGN KEY (MemberID) REFERENCES Members(MemberID)
+);
+
+4. LIBRARIANS TABLE :
+  CREATE TABLE Librarians (
+   LibrarianID INT PRIMARY KEY,
+   Name VARCHAR(255),
+   Username VARCHAR(255) UNIQUE,
+   Password VARCHAR(255)
+);
+
