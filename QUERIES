@@ -1,0 +1,20 @@
+ADD A NEW BOOK:
+INSERT INTO Books (BookID, Title, Author, ISBN, PublicationYear, Category, CopiesAvailable)
+VALUES (101, 'Introduction to DBMS', 'John Doe', '978-1234567890', 2023, 'Education', 5);
+
+ISSUE A BOOK:
+INSERT INTO Transactions (TransactionID, BookID, MemberID, IssueDate, DueDate)
+VALUES (1, 101, 201, '2024-10-19', '2024-11-19');
+
+UPDATE Books
+SET CopiesAvailable = CopiesAvailable - 1
+WHERE BookID = 101;
+
+RETURN A BOOK:
+UPDATE Transactions
+SET ReturnDate = '2024-10-29'
+WHERE TransactionID = 1;
+
+UPDATE Books
+SET CopiesAvailable = CopiesAvailable + 1
+WHERE BookID = 101;
